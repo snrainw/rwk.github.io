@@ -1,0 +1,33 @@
+## libbpf_bootstrap
+
+```
+sudo apt-get install clang libelf1 libelf-dev zlib1g-dev
+git clone --recurse-submodules https://github.com/libbpf/libbpf-bootstrap
+```
+
+## libz
+
+```
+wget https://zlib.net/fossils/zlib-1.2.8.tar.gz
+tar -zxvf zlib-1.2.8.tar.gz
+cd zlib-1.2.11
+export CC=aarch64-linux-gnu-gcc
+export AR=aarch64-linux-gnu-ar
+./configure
+make && sudo make install
+# libz被安装在/usr/aarch64-linux-gnu
+```
+
+## elfutils
+
+```
+wget https://sourceware.org/elfutils/ftp/0.167/elfutils-0.167.tar.bz2
+tar -xvf elfutils-0.167.tar.bz2
+cd elfutils-0.167
+./configure --prefix=/home/u20/work/test/libbpf-bootstrap/install --host=aarch64-linux-gnu --build=x86_64-linux-gnu
+# 遇到报错先执行CFLAGS='-Wno-error=missing-attributes -Wno-error=packed-not-aligned'
+make && make install
+```
+
+
+
