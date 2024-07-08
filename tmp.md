@@ -3,6 +3,9 @@
 ```
 sudo apt-get install clang libelf1 libelf-dev zlib1g-dev
 git clone --recurse-submodules https://github.com/libbpf/libbpf-bootstrap
+# 先把下面两个库准备好
+cd libbpf-bootstrap/example/c
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-g V=1
 ```
 
 ## libz
@@ -24,9 +27,9 @@ make && sudo make install
 wget https://sourceware.org/elfutils/ftp/0.167/elfutils-0.167.tar.bz2
 tar -xvf elfutils-0.167.tar.bz2
 cd elfutils-0.167
-./configure --prefix=/home/u20/work/test/libbpf-bootstrap/install --host=aarch64-linux-gnu --build=x86_64-linux-gnu
+./configure --prefix=/usr/aarch64-linux-gnu --host=aarch64-linux-gnu --build=x86_64-linux-gnu
 # 遇到报错先执行CFLAGS='-Wno-error=missing-attributes -Wno-error=packed-not-aligned'
-make && make install
+make && sudo make install
 ```
 
 
