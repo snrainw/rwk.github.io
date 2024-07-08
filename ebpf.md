@@ -44,6 +44,7 @@
     CONFIG_DEBUG_INFO_BTF_MODULES=y
 
 另外kprobe相关的也勾选上 CONFIG_KPROBES=y, CONFIG_HAVE_KPROBES=y, CONFIG_KPROBE_EVENTS=y
+
 多勾选几个无伤大雅，然后再编译一遍内核。快速定位到子菜单：进入menuconfig界面后按`/`，然后把选项粘贴进去，按下数字如1进行跳转，后面就可以一个个按`y`进行勾选了。
 
 [或者直接复制.config到kernel目录](https://github.com/snrainw/rwk.github.io/blob/main/.config)
